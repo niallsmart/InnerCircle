@@ -7,7 +7,8 @@
 				alert("Facebook authentication failed. Please try again?")
 				return
 			FB.api '/me', (user) ->
-				u = new User name: user.name, id: user.id, fb_access_token: response.authResponse.access_token
+				debugger
+				u = new User name: user.name, fb_id: user.id, fb_access_token: response.authResponse.accessToken
 				u.save()
 				# this is where we create the User (which will automatically
 			    # create a session) and redirect to the first page
@@ -18,4 +19,4 @@
 	%h2 Welcome to Inner Circle
 	.lead{ :style => "padding: 20px; " }
 		%em TODO: awesome marketing copy
-	.button.btn.btn-primary{ :onclick => "login()"} Let's Get Started
+	.button.btn.btn-primary.needs-fb{ :onclick => "login()"} Let's Get Started
