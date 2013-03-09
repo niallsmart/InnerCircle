@@ -60,6 +60,6 @@ module InnerCircle
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.facebook = OpenStruct.new(:app_id => "foo")
+    config.facebook = OpenStruct.new(:app_id => "132386116942997")
   end
 end

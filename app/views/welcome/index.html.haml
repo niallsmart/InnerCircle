@@ -6,7 +6,9 @@
 			unless response.authResponse
 				alert("Facebook authentication failed. Please try again?")
 				return
-			FB.api '/me', (response) ->
+			FB.api '/me', (user) ->
+				u = new User name: user.name, id: user.id, fb_access_token: response.authResponse.access_token
+				u.save()
 				# this is where we create the User (which will automatically
 			    # create a session) and redirect to the first page
 				alert "Welcome to Inner Circle, \#{response.name}!"
